@@ -126,7 +126,6 @@ callback.forEach((el) => {
 createElement.innerHTML= template2;
 conteinerScrollLocations.appendChild(createElement);
 return template2;
-
 });
   }
 locationItems(filterItems("locations", films).flat(2))
@@ -166,7 +165,7 @@ const filterButtonsProducer = btnContainerProducer.querySelectorAll(".filterProd
 //Funcion para filtrar por directores
 filterButtonsDirector.forEach((el) => {  
   el.addEventListener("click",function(e) {
-    const property= e.target.dataset.id;
+    const property= e.currentTarget.dataset.id;
     let newData= filterDirector(films,property)
         conteinerScrollFilmo.innerHTML=" ";
         return filmoItems(newData)    
@@ -177,7 +176,7 @@ filterButtonsDirector.forEach((el) => {
 //Funcion para filtrar por productores
 filterButtonsProducer.forEach((el) => {  
   el.addEventListener("click",function(e) {
-    const property= e.target.dataset.id;
+    const property= e.currentTarget.dataset.id;
     let newData= filterProducer(films,property)
           conteinerScrollFilmo.innerHTML=" ";
           return filmoItems(newData)    
@@ -257,7 +256,7 @@ const filterButtonDesc =document.getElementById("desc");
 
   filterButtonsClima.forEach((el) => {  
     el.addEventListener("click",function(e) {
-      const property= e.target.dataset.id;
+      const property= e.currentTarget.dataset.id;
       let newData= filterClima(films,property)
       conteinerScrollLocations.innerHTML=" ";
         return locationItems(newData)    
@@ -270,7 +269,7 @@ const filterButtonDesc =document.getElementById("desc");
 
   filterButtonsTerreno.forEach((el) => {  
     el.addEventListener("click",function(e) {
-      const property= e.target.dataset.id;
+      const property= e.currentTarget.dataset.id;
       let newData= filterTerreno(films,property)
        conteinerScrollLocations.innerHTML=" ";
         return locationItems(newData)    
@@ -292,7 +291,7 @@ const filterButtonsGenero = btnContainerGenero.querySelectorAll(".filterGenero")
 
   filterButtonsGenero.forEach((el) => {  
     el.addEventListener("click",function(e) {
-      const property= e.target.dataset.id;
+      const property= e.currentTarget.dataset.id;
       let newData= filterGenero(films,property)
       conteinerScrollPeople.innerHTML=" ";
         return peopleItems (newData)    
@@ -305,7 +304,7 @@ const filterButtonsHumano = btnContainerHumanos.querySelectorAll(".filterHumano"
 
 filterButtonsHumano.forEach((el) => {  
     el.addEventListener("click",function(e) {
-      const property= e.target.dataset.id;
+      const property= e.currentTarget.dataset.id;
       let newData= filterEspecie(films,property)
       conteinerScrollPeople.innerHTML=" ";
         return peopleItems (newData)    
@@ -318,7 +317,7 @@ const filterButtonsAnimal = btnContainerAnimales.querySelectorAll(".filterAnimal
 
 filterButtonsAnimal.forEach((el) => {  
     el.addEventListener("click",function(e) {
-      const property= e.target.dataset.id;
+      const property= e.currentTarget.dataset.id;
       let newData= filterEspecie(films,property)
       conteinerScrollPeople.innerHTML=" ";
         return peopleItems (newData)    
@@ -331,7 +330,7 @@ const filterButtonsHibrido = btnContainerHibridos.querySelectorAll(".filterHibri
 
 filterButtonsHibrido.forEach((el) => {  
     el.addEventListener("click",function(e) {
-      const property= e.target.dataset.id;
+      const property= e.currentTarget.dataset.id;
       let newData= filterEspecie(films,property)
       conteinerScrollPeople.innerHTML=" ";
         return peopleItems (newData)    
@@ -344,7 +343,7 @@ const filterButtonsMiticos = btnContainerMiticos.querySelectorAll(".filterMitico
 
 filterButtonsMiticos.forEach((el) => {  
     el.addEventListener("click",function(e) {
-      const property= e.target.dataset.id;
+      const property= e.currentTarget.dataset.id;
       let newData= filterEspecie(films,property)
       conteinerScrollPeople.innerHTML=" ";
         return peopleItems (newData)    
@@ -352,28 +351,30 @@ filterButtonsMiticos.forEach((el) => {
       return filterButtonsMiticos;
   })
 
-//Funcionalidad para el boton slider
-const slider = document.getElementById("slider");
-const selector = document.getElementById("selector");
-const selectValue =document.getElementById("selectValue");
+// Comentar funcion de slide para edad
 
-selectValue.innerHTML = slider.value;
+// //Funcionalidad para el boton slider
+// const slider = document.getElementById("slider");
+// const selector = document.getElementById("selector");
+// const selectValue =document.getElementById("selectValue");
 
-slider.oninput = function () {
-  selectValue.innerHTML = this.value;
-  selector.style.left = this.value + "%";
-}
+// selectValue.innerHTML = slider.value;
 
-//Funcion para la barra de edad
-slider.addEventListener("change", function() {
-  const newData = filterAge(films, slider.value);
-    conteinerScrollPeople.innerHTML=" ";
-    peopleItems (newData)  
-  if (conteinerScrollPeople.innerHTML== " ") {
-    conteinerScrollPeople.innerHTML="No hay personajes con esta edad, sigue buscando :)";
-  }
+// slider.oninput = function () {
+//   selectValue.innerHTML = this.value;
+//   selector.style.left = this.value + "%";
+// }
+// -
+// //Funcion para la barra de edad
+// slider.addEventListener("change", function() {
+//   const newData = filterAge(films, slider.value);
+//     conteinerScrollPeople.innerHTML=" ";
+//     peopleItems (newData)  
+//   if (conteinerScrollPeople.innerHTML== " ") {
+//     conteinerScrollPeople.innerHTML="No hay personajes con esta edad, sigue buscando :)";
+//   }
 
-})
+// })
 
 //Funcion para el boton clean
 document.getElementById("cleanPeople").addEventListener("click",function() {
@@ -389,7 +390,7 @@ document.getElementById("cleanPeople").addEventListener("click",function() {
 
   filterButtonsAereo.forEach((el) => {  
     el.addEventListener("click",function(e) {
-      const property= e.target.dataset.id;
+      const property= e.currentTarget.dataset.id;
       let newData= filterVehiculo(films,property)
       conteinerScrollVehicles.innerHTML=" ";
         return vehicleItems (newData)    
@@ -402,7 +403,7 @@ document.getElementById("cleanPeople").addEventListener("click",function() {
 
   filterButtonsMaritimo.forEach((el) => {  
     el.addEventListener("click",function(e) {
-      const property= e.target.dataset.id;
+      const property= e.currentTarget.dataset.id;
       let newData= filterVehiculo(films,property)
       conteinerScrollVehicles.innerHTML=" ";
         return vehicleItems (newData)    
@@ -550,64 +551,6 @@ function statisticsScore(ctx) {
   }
   
   mostrarCharts3();
-
-
-
-  // funcion para slider
-
-  /*const sliderPortada = document.querySelector("#slider");
-  let sliderSection = document.querySelectorAll(".slider__section");
-  let sliderSectionLast = sliderSection[sliderSection.length -1];
-  const btnLeft = document.querySelector("#btn-left");
-  const btnRight = document.querySelector("#btn-right");
-  sliderPortada.insertAdjacentElement("afterbegin", sliderSectionLast);
-
-  function Next(){
-   let sliderSectionFirst=document.querySelectorAll(".slider__section")[0];
-   sliderPortada.style.marginLeft="-200 %";
-   sliderPortada.style.transition="all 0.50s";
-   setTimeout(function(){
-
-  sliderPortada.style.transition="none";
-  sliderPortada.insertAdjacentElement("beforeend", sliderSectionFirst);
-  sliderPortada.style.marginLeft="-100%";
-   },500);
-  }
-  btnRight.addEventListener("click", function (){
-
-   Next();
-
-  });
-
-  function Prev(){
-    let sliderSection = document.querySelectorAll(".slider__section");
-    let sliderSectionLast = sliderSection[sliderSection.length -1];
-    sliderPortada.style.marginLeft="0";
-    sliderPortada.style.transition="all 0.50s";
-    setTimeout(function(){
- 
-    sliderPortada.style.transition="none";
-    sliderPortada.insertAdjacentElement("afterbegin", sliderSectionLast);
-    sliderPortada.style.marginLeft="-100%";
-    },500);
-   }
-   btnRight.addEventListener("click", function (){
- 
-   Next();
- 
-   });
-
-   btnLeft.addEventListener("click", function (){
- 
-    Prev();
-  
-    });
-
-    setInterval(function(){
-    
-    Next();
-
-    },3000);*/
    
    
 
